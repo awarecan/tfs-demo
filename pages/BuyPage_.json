@@ -1,0 +1,11 @@
+{
+    "PageName": "Buy",
+    "PageUrl": "/pub/w/payment_estimator/get_payment/buy",
+    "Controls": {
+        "Recalculate": {
+            "Type": "Button",
+            "SelectType": "id",
+            "Selector": "estimate_payment_buy"
+        }
+    }
+}

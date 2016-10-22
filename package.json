@@ -1,0 +1,24 @@
+{
+  "name": "tfs-demo",
+  "version": "1.0.0",
+  "description": "Test Automation Demo for Toyota Financial Services",
+  "repository": {
+    "type": "git",
+    "url": "https://github.org/awarecan/tfs-demo.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-compile-handlebars": "^2.0.2",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-merge-json": "^0.9.5",
+    "handlebars": "^4.0.5",
+    "protractor": "^4.0.9",
+    "winston": "^2.2.0"
+  }
+}

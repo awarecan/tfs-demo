@@ -1,0 +1,19 @@
+{
+  "PageName": "Home",
+  "PageUrl": "/pub/home",
+  "Controls": {
+    "FinancialTools": {
+      "Type": "Button",
+      "SelectType": "id",
+      "Selector": "finance-vehicle"
+    },
+    "EstimateMonthlyPayment": {
+      "Type": "Link",
+      "SelectType": "PartialLinkText",
+      "Selector": "Estimate Monthly Payments",
+      "NavigateFlows": [
+        "EstimateMonthlyPaymentFlow"
+      ]
+    }
+  }
+}

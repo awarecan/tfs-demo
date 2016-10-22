@@ -1,0 +1,58 @@
+{
+  "params": {
+    "baseUrl": "https://www.lexusfinancial.com",
+    "loginUrl": "https://www.lexusfinancial.com",
+    "users": {
+      "adminUser": {
+        "username": "testadmin",
+        "password": "password.0",
+        "usernameInfo": "Test Admin"
+      },
+      "normalUser": {
+        "username": "testuser",
+        "password": "password",
+        "usernameInfo": "Test User"
+      },
+      "permissionUser": {
+        "username": "peruser",
+        "password": "password",
+        "usernameInfo": "permission user"
+      }
+    },
+    "versionInformation":{
+      "SystemVersionNumber":"1.4.0",
+      "InstrumentType":"MiSeq",
+      "InstrumentName":"USSD-OFCLT7858"
+    },
+    "systemSettings": {
+      "default": {
+        "global": {
+          "OutputRepositoryPath": "D:\\Illumina\\MiSeqOutput"
+        },
+        "security": {
+          "PasswordExpirationPeriod": "90",
+          "PasswordResetReminder": "15",
+          "LoginAttemptsBeforeLockOut": "3",
+          "IdleTimeout": "10"
+        },
+        "maintenance": {
+          "EnableAutomaticDeletion": false,
+          "FolderInactivityDay": "30",
+          "DatabaseBackupPath": "C:\\Illumina\\Local Run Manager\\Database Backup",
+          "BackupPeriod": "7"
+        }
+      },
+      "NoAccessPath": "C:\\NotAccesableForUser",
+      "AccessiblePath": "D:\\",
+      "InvalidPath": "E:\\*>?",
+      "NotExistPath": "D:\\NotExistPath",
+      "NotExistPathErrorMessage": "D:\\NotExistPath is not a valid directory"
+    },
+    "LibraryPrepKits":{
+      "TruSightKistDefPath":"D:\\Illumina\\Library Prep Kits\\TruSightKistDef.tsv",
+      "NexteraKistDefPath":"D:\\Illumina\\Library Prep Kits\\NexteraKistDef.tsv",
+      "EmptySupportModulesPath":"D:\\Illumina\\Library Prep Kits\\EmptySupportModules.tsv"
+    }
+  }
+}
+
