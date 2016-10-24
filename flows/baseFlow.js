@@ -200,6 +200,7 @@ FlowBase.prototype.waitForCondition = function (condition, timeoutInSeconds, mes
 };
 
 FlowBase.prototype.wait = function (timeInSeconds) {
+    timeInSeconds = timeInSeconds || 30;
     logUtil.logDebug("wait " + timeInSeconds + " seconds.");
     browser.driver.sleep(timeInSeconds * 1000);
     return this;

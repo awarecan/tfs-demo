@@ -1,0 +1,36 @@
+{
+    "multiCapabilities": [
+
+        {
+            "browserName": "chrome",
+            "chromeOptions": {
+                "args": [
+                    "test-type",
+                    "allow-running-insecure-content",
+                    "ignore-certificate-errors",
+                    "start-maximized"
+                ],
+                "prefs":{
+                    "download":{
+                        "prompt_for_download":false,
+                        "default_directory":"C:/temp/exports"
+                    }
+                }
+            },
+            "count": 1
+        }
+    ],
+    "backupReport":true,
+    "saveEachScreenshot":true,
+    "TestCases": [
+        "./testCases/*.spec.js"
+    ],
+    "Versions":{
+        "SystemUnderTest":"",
+        "SoftwareVersion":"",
+        "RunNumber":1,
+        "TestScriptVersion":"",
+        "Tested":""
+    }
+
+}

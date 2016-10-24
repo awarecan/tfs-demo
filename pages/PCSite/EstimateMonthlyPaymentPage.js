@@ -5,9 +5,9 @@
 //      the code is regenerated.
 // ------------------------------------------------------------------------------
 
-var controls = require('./../controls/controls.js');
-var utilities = require('./../utils/utilities.js');
-var pagedata = utilities.readJsonFile(__dirname + '/../pages/EstimateMonthlyPaymentPage.json');
+var controls = require('./../../controls/controls.js');
+var utilities = require('./../../utils/utilities.js');
+var pagedata = utilities.readJsonFile(__dirname + '/EstimateMonthlyPaymentPage.json');
 
 function EstimateMonthlyPaymentPage(){
       this.pageUrl = '/pub/w/payment_estimator';

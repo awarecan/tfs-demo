@@ -3,7 +3,8 @@ var logUtil = require('./utils/logUtil');
 var emailUtil = require('./utils/emailUtil');
 
 // Assign test environment, and test run configuration
-var cfg = new Configs('local');
+var envcfg='local';
+var cfg = new Configs(envcfg);
 var environmentConfig = cfg.environmentConfig;
 var appConfig = cfg.appConfig;
 var runConfig = cfg.runConfig;

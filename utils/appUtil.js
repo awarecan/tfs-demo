@@ -4,7 +4,7 @@ var that;
 var appUtil = function(){
 	that = this;
 };
-var HomeFlow = require('./../flows/HomeFlow.js');
+var HomeFlow = require('./../flows/'+browser.params.RunMode+'/HomeFlow.js');
 /**
  * Init Test Case(page)
  * if user == undefined or null ,it will goto Home Page
@@ -12,12 +12,17 @@ var HomeFlow = require('./../flows/HomeFlow.js');
  * @constructor
  */
 appUtil.prototype.initTest=function(user) {
+			console.log("initTest test: ======: " );
 	var homeFlow = new HomeFlow();
+			console.log("initTest test: ======2: " );
 	browser.getCurrentUrl().then(function (url) {
+			console.log("initTest test: ======3: " );
 		//console.log('current url: '+url);
 		if (undefined === user || null === user) {
+			console.log("initTest test: ======4: " );
 			homeFlow.step('Init Test: go to home page.').gotoPage();
 		}
+			console.log("initTest test: ======5: " );
 	}, function (err) {
 		console.log('err' + err);
 	});

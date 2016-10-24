@@ -5,8 +5,8 @@
 //      the code is regenerated.
 // ------------------------------------------------------------------------------
 
-var HomePage = require('./../pages/HomePage.js');
-var FlowBase = require('./../flows/baseFlow.js');
+var HomePage = require('./../../pages/MobileSitea/HomePage.js');
+var FlowBase = require('./../../flows/baseFlow.js');
 
 
 function HomeFlowBase(checkUrl, goto) {
@@ -131,7 +131,7 @@ HomeFlowBase.prototype.constructor = HomeFlowBase;
   // Navigation for EstimateMonthlyPaymentLink
   HomeFlowBase.prototype.click_EstimateMonthlyPaymentLink_NavigateTo_EstimateMonthlyPaymentFlow = function () {
         var that = this;
-      var EstimateMonthlyPaymentFlow = require('./../flows/EstimateMonthlyPaymentFlow.js');
+      var EstimateMonthlyPaymentFlow = require('./../../flows/MobileSitea/EstimateMonthlyPaymentFlow.js');
       this.takeScreenForLog(function(msg){
       that.logDebug('Click EstimateMonthlyPayment Link then navigate to EstimateMonthlyPaymentFlow. '+msg);
     });

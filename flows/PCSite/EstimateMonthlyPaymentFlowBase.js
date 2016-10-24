@@ -5,8 +5,8 @@
 //      the code is regenerated.
 // ------------------------------------------------------------------------------
 
-var EstimateMonthlyPaymentPage = require('./../pages/EstimateMonthlyPaymentPage.js');
-var FlowBase = require('./../flows/baseFlow.js');
+var EstimateMonthlyPaymentPage = require('./../../pages/PCSite/EstimateMonthlyPaymentPage.js');
+var FlowBase = require('./../../flows/baseFlow.js');
 
 
 function EstimateMonthlyPaymentFlowBase(checkUrl, goto) {
@@ -158,7 +158,7 @@ EstimateMonthlyPaymentFlowBase.prototype.constructor = EstimateMonthlyPaymentFlo
   // Navigation for RX_HYBRIDButton
   EstimateMonthlyPaymentFlowBase.prototype.click_RX_HYBRIDButton_NavigateTo_BuyFlow = function () {
         var that = this;
-      var BuyFlow = require('./../flows/BuyFlow.js');
+      var BuyFlow = require('./../../flows/PCSite/BuyFlow.js');
       this.takeScreenForLog(function(msg){
       that.logDebug('Click RX_HYBRID Button then navigate to BuyFlow. '+msg);
     });

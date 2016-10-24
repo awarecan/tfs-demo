@@ -1,8 +1,8 @@
 {
   "params": {
-    "RunMode":"PCSite",
-    "baseUrl": "https://www.lexusfinancial.com",
-    "loginUrl": "https://www.lexusfinancial.com",
+    "RunMode":"MobileSitea",
+    "baseUrl": "https://m.lexusfinancial.com",
+    "loginUrl": "https://m.lexusfinancial.com",
     "users": {
       "adminUser": {
         "username": "testadmin",

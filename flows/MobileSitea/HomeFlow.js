@@ -14,3 +14,11 @@ HomeFlow.prototype.start = function () {
 };
 
 module.exports = HomeFlow;
+
+
+  // Navigation to EstimateMonthlyPaymentFlow
+  HomeFlow.prototype.navigateTo_EstimateMonthlyPaymentFlow = function () {
+      return this.click_EstimateMonthlyPaymentLink_NavigateTo_EstimateMonthlyPaymentFlow();
+      
+  };
+

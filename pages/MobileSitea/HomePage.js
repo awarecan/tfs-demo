@@ -5,12 +5,12 @@
 //      the code is regenerated.
 // ------------------------------------------------------------------------------
 
-var controls = require('./../controls/controls.js');
-var utilities = require('./../utils/utilities.js');
-var pagedata = utilities.readJsonFile(__dirname + '/../pages/HomePage.json');
+var controls = require('./../../controls/controls.js');
+var utilities = require('./../../utils/utilities.js');
+var pagedata = utilities.readJsonFile(__dirname + '/HomePage.json');
 
 function HomePage(){
-      this.pageUrl = '/pub/home';
+      this.pageUrl = '/pub/w';
       this.FinancialToolsButton = new controls.Button(pagedata.Controls.FinancialTools.SelectType, pagedata.Controls.FinancialTools.Selector);
       this.EstimateMonthlyPaymentLink = new controls.Link(pagedata.Controls.EstimateMonthlyPayment.SelectType, pagedata.Controls.EstimateMonthlyPayment.Selector);
 };

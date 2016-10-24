@@ -161,10 +161,108 @@ Control.prototype.waitPresent = function (timeoutInSeconds) {
     if (self.locator) {
         browser.driver.wait(function () {
             return browser.driver.isElementPresent(self.locator);
-        }, timeoutInSeconds * 1000);
+        }, timeoutInSeconds * 1000, 'Object: ' + self.locator + ' is not appear.');
     }
+       if (self.locator) {
+           //self.isPresent().then(function(present) {
+          browser.driver.isElementPresent(self.locator).then(function(present) {
+            /* no webdriver js errors here */
+            if (present) {
+                /* element exists */
+            } else {
+                /* element doesn't exist */
+           }}
+            , function(err) {
+            /* error handling here, i.e. element doesn't if got ElementNotFound
+                but, eventually and less likely, other issues will fall in here too like
+                NoSuchWindowsError or ElementStaleError etc...
+            */
+            console.log( 'Object: ' + self.locator + ' is not appear.')
+            });
+       }
 };
 
+
+var waitForElement = function( attempts) {
+    if (attempts == null) {
+        attempts = 3;
+    };
+    var self = this;
+
+    // first wait for element to be present
+    return browser.driver.findElement(self.locator).then(function(found) {
+        // now wait for it to be visible
+        browser.manage().timeouts().implicitlyWait(300); // we need this to be faster now
+        return browser.driver.wait(function() {
+            return found.isDisplayed().then(function(visible) {
+                // First wait for it to become visible
+                if (visible) {
+                    return true
+                } else {
+                    browser.sleep(300); // give it a break
+                    return false;
+                };
+            }, function(err) { /* err hnd */
+                if (attempts > 0) {
+                    return waitForElement( attempts - 1);
+                } else {
+                    throw err;
+                };
+            });
+        }, browser.params.timeouts.waitBecomeVisible, 'Expectation error: waiting for element: '+self.locator);
+        // restore implicit wait
+        //browser.manage().timeouts().implicitlyWait(browser.params.timeouts.implicitlyWait);
+    }, function(err) { /* err hnd */
+        if (attempts > 0) {
+            return waitForElement( attempts - 1);
+        } else {
+            throw err;
+        };
+    });
+};
+// need this if you get random getText() errors on IE like:
+//  Expected '' to be 'invalid login'.
+// or StaleElementError in any browser
+var waitForElementWithText = function(elm, txt, attempts) {
+    if (attempts == null) {
+        attempts = 3;
+    };
+
+    // first wait for element to be present
+    return browser.driver.findElement(elm).then(function(found) {
+        // now wait for it to be visible
+        browser.manage().timeouts().implicitlyWait(300); // we need this to be faster now
+        return browser.driver.wait(function() {
+            return found.isDisplayed().then(function(visible) {
+                // First wait for it to become visible
+                if (visible) {
+                    // Then wait for text to be populated
+                    if(txt==null) return true;
+                    return found.getText().then(function(gotTxt) {
+                        return gotTxt === txt;
+                    });
+                } else {
+                    browser.sleep(300); // give it a break
+                    return false;
+                };
+            }, function(err) { /* err hnd */
+                if (attempts > 0) {
+                    return waitForElementWithText(elm, txt, attempts - 1);
+                } else {
+                    throw err;
+                };
+            });
+        }, browser.params.timeouts.waitBecomeVisible, 'Expectation error: waiting for element to getText(): '+elm);
+        // restore implicit wait
+        //browser.manage().timeouts().implicitlyWait(browser.params.timeouts.implicitlyWait);
+    }, function(err) { /* err hnd */
+        if (attempts > 0) {
+            return waitForElementWithText(elm, txt, attempts - 1);
+        } else {
+            throw err;
+        };
+    });
+};
 Control.prototype.constructor = Control;
 
 module.exports = Control;

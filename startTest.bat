@@ -1,0 +1,1 @@
+node  node_modules\protractor\bin\protractor d:\Git\tfs-demo/test-e2e.conf.js

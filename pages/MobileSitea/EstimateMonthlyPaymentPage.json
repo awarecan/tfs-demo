@@ -1,0 +1,29 @@
+{
+	"PageName": "EstimateMonthlyPayment",
+	"PageUrl": "/pub/w/estimate-payment/1",
+	"Controls": {
+		"ZipCode": {
+			"Type": "TextBox",
+			"SelectType": "id",
+			"Selector": "zip"
+		},
+		"StartBtn": {
+			"Type": "Button",
+			"SelectType": "csscontainingtext",
+			"Selector": "js-set-zip"
+		},
+		"Group_HYBRID": {
+			"Type": "Label",
+			"SelectType": "xpath",
+			"Selector": "//*[@data-model='HYBRIDS']"
+		},
+		"RX_HYBRID": {
+			"Type": "Link",
+			"SelectType": "xpath",
+			"Selector": "//*[@data-model='RX HYBRID']",
+			"NavigateFlows": [
+				"BuyFlow"
+			]
+		}
+	}
+}

@@ -5,8 +5,8 @@
 //      the code is regenerated.
 // ------------------------------------------------------------------------------
 
-var BuyPage = require('./../pages/BuyPage.js');
-var FlowBase = require('./../flows/baseFlow.js');
+var BuyPage = require('./../../pages/MobileSitea/BuyPage.js');
+var FlowBase = require('./../../flows/baseFlow.js');
 
 
 function BuyFlowBase(checkUrl, goto) {
