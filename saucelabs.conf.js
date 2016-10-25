@@ -3,7 +3,7 @@ var logUtil = require('./utils/logUtil');
 var emailUtil = require('./utils/emailUtil');
 
 // Assign test environment, and test run configuration
-var cfg = new Configs('local');
+var cfg = new Configs('saucelabs');
 var environmentConfig = cfg.environmentConfig;
 var appConfig = cfg.appConfig;
 var runConfig = cfg.runConfig;
@@ -51,7 +51,7 @@ exports.config = {
     // The address of a running Selenium Server. If specified, Protractor will
     // connect to an already running instance of Selenium. This usually looks like
     // seleniumAddress: 'http://localhost:4444/wd/hub'
-    seleniumAddress: environmentConfig.seleniumAddress,
+    //seleniumAddress: environmentConfig.seleniumAddress,
 
     // ---- 3. To use remote browsers via Sauce Labs -----------------------------
     // If sauceUser and sauceKey are specified, seleniumServerJar will be ignored.
@@ -71,7 +71,7 @@ exports.config = {
     // Boolean. If true, Protractor will connect directly to the browser Drivers
     // at the locations specified by chromeDriver and firefoxPath. Only Chrome
     // and Firefox are supported for direct connect.
-    directConnect: environmentConfig.directConnect,
+    //directConnect: environmentConfig.directConnect,
     // Path to the firefox application binary. If null, will attempt to find
     // firefox in the default locations.
     //firefoxPath: null,

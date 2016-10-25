@@ -1,0 +1,24 @@
+{
+  "params": {
+    "baseUrl": "https://m.lexusfinancial.com",
+    "loginUrl": "https://m.lexusfinancial.com",
+    "users": {
+      "adminUser": {
+        "username": "testadmin",
+        "password": "password.0",
+        "usernameInfo": "Test Admin"
+      },
+      "normalUser": {
+        "username": "testuser",
+        "password": "password",
+        "usernameInfo": "Test User"
+      },
+      "permissionUser": {
+        "username": "peruser",
+        "password": "password",
+        "usernameInfo": "permission user"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,73 @@
+{
+    "multiCapabilities": [
+        {
+            "browserName": "chrome",
+            "chromeOptions": {
+                "args": [
+                    "test-type",
+                    "allow-running-insecure-content",
+                    "ignore-certificate-errors",
+                    "start-maximized"
+                ],
+                "prefs":{
+                    "download":{
+                        "prompt_for_download":false,
+                        "default_directory":"C:/temp/exports"
+                    }
+                }
+            },
+            "count": 1,
+            "TestCases": [
+                "./testCases/*.spec.js"
+            ]
+        },
+        {
+            "browserName": "chrome",
+            "chromeOptions": {
+                "args": [
+                    "test-type",
+                    "allow-running-insecure-content",
+                    "ignore-certificate-errors",
+                    "start-maximized"
+                ],
+                "mobileEmulation": {
+                    "deviceName": "Apple iPhone 6"
+                },
+                "prefs":{
+                    "download":{
+                        "prompt_for_download":false,
+                        "default_directory":"C:/temp/exports"
+                    }
+                }
+            },
+            "count": 1,
+            "TestCases": [
+                "./testCases/*.spec.js"
+            ]
+        },
+        {
+            "browserName": "Safari",
+            "deviceName": "iPhone 6",
+            "deviceOrientation": "portrait",
+            "platformVersion": "8.4",
+            "platformName": "iOS",
+            "count": 1,
+            "TestCases": [
+                "./testCases/*.spec.js"
+            ]
+        }
+    ],
+    "backupReport":true,
+    "saveEachScreenshot":true,
+    "TestCases": [
+        "./testCases/*.spec.js"
+    ],
+    "Versions":{
+        "SystemUnderTest":"",
+        "SoftwareVersion":"",
+        "RunNumber":1,
+        "TestScriptVersion":"",
+        "Tested":""
+    }
+
+}
