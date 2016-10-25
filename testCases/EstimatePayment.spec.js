@@ -1,11 +1,9 @@
 var HomeFlow = require('./../flows/HomeFlow.js');
 var util = require('./../utils/utilities');
-var pageExpectValue = require("./../expects/expects.js");
 var appUtil = require('./../utils/appUtil');
 var fs = require('fs');
 
 describe("Login feature", function () {
-    var adminUser = browser.params.users.adminUser;
     var caseFinish = false;
     beforeEach(function () {
         browser.params.currentScriptName = util.getFileName(__filename);
