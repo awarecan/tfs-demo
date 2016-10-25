@@ -1,6 +1,5 @@
 {
     "multiCapabilities": [
-
         {
             "browserName": "chrome",
             "chromeOptions": {
@@ -17,7 +16,34 @@
                     }
                 }
             },
-            "count": 1
+            "count": 1,
+            "TestCases": [
+                "./testCases/*.spec.js"
+            ]
+        },
+        {
+            "browserName": "chrome",
+            "chromeOptions": {
+                "args": [
+                    "test-type",
+                    "allow-running-insecure-content",
+                    "ignore-certificate-errors",
+                    "start-maximized"
+                ],
+                "mobileEmulation": {
+                    "deviceName": "Apple iPhone 6"
+                },
+                "prefs":{
+                    "download":{
+                        "prompt_for_download":false,
+                        "default_directory":"C:/temp/exports"
+                    }
+                }
+            },
+            "count": 1,
+            "TestCases": [
+                "./testCases/*.spec.js"
+            ]
         }
     ],
     "backupReport":true,
