@@ -63,6 +63,19 @@ EstimateMonthlyPaymentFlowBase.prototype.constructor = EstimateMonthlyPaymentFlo
     return this;
   };
 
+  // Wait functions for ZipCodeTextBox
+  EstimateMonthlyPaymentFlowBase.prototype.wait_ZipCodeTextBox_Displayed = function () {
+    this.logDebug('Wait until ZipCode TextBox displayed');
+    this.page.ZipCodeTextBox.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_ZipCodeTextBox_Disappeared = function () {
+    this.logDebug('Wait until ZipCode TextBox disappeared');
+    this.page.ZipCodeTextBox.waitForDisappear();
+    return this;
+  };
+
   // Assert functions for ZipCodeTextBox
   EstimateMonthlyPaymentFlowBase.prototype.assert_ZipCodeTextBox_ContainText = function (text,msgOptions) {
     //this.logDebug('Assert ZipCode TextBox contains text: ' + text);
@@ -155,15 +168,255 @@ EstimateMonthlyPaymentFlowBase.prototype.constructor = EstimateMonthlyPaymentFlo
   };
 
 
-  // Navigation for RX_HYBRIDButton
-  EstimateMonthlyPaymentFlowBase.prototype.click_RX_HYBRIDButton_NavigateTo_BuyFlow = function () {
+
+  // Control functions for StartButton
+  EstimateMonthlyPaymentFlowBase.prototype.click_StartButton = function () {
         var that = this;
-      var BuyFlow = require('./../flows/BuyFlow.js');
       this.takeScreenForLog(function(msg){
-      that.logDebug('Click RX_HYBRID Button then navigate to BuyFlow. '+msg);
+      that.logDebug('Click Start Button. '+msg);
+    });
+    this.page.StartButton.click();
+    return this;
+  };
+
+
+
+
+
+  // Wait functions for StartButton
+  EstimateMonthlyPaymentFlowBase.prototype.wait_StartButton_Displayed = function () {
+    this.logDebug('Wait until Start Button displayed');
+    this.page.StartButton.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_StartButton_Disappeared = function () {
+    this.logDebug('Wait until Start Button disappeared');
+    this.page.StartButton.waitForDisappear();
+    return this;
+  };
+
+  // Assert functions for StartButton
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert Start Button contains text: ' + text);
+    this.assertIsContain(this.page.StartButton.getText(), text,msgOptions,'Assert Start Button contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert Start Button does not contain text: ' + text);
+    this.assertIsNotContain(this.page.StartButton.getText(), text,msgOptions,'Assert Start Button does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert Start Button text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.StartButton.getText(), pattern, msgOptions, 'Assert Start Button text match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert Start Button attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.StartButton.getAttribute(attribute), text,msgOptions,'Assert Start Button attribute[' + attribute + '] contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert Start Button attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.StartButton.getAttribute(attribute), text,msgOptions,'Assert Start Button attribute[' + attribute + '] does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert Start Button attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.StartButton.getAttribute(attribute), pattern,msgOptions,'Assert Start Button attribute[' + attribute + '] match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert Start Button is displayed.');
+    this.assertTrue(this.page.StartButton.isDisplayed(),msgOptions,'Assert Start Button is displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert Start Button is NOT displayed.');
+    this.assertFalse(this.page.StartButton.isDisplayed(),msgOptions,'Assert Start Button is NOT displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_StartButton_IsDisplayed = function (callback) {
+    this.logDebug('Get Start Button Displayed state.');
+    this.page.StartButton.isDisplayed().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert Start Button is enabled.');
+    this.assertTrue(this.page.StartButton.isEnabled(),msgOptions,'Assert Start Button is enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert Start Button is disabled.');
+    this.assertFalse(this.page.StartButton.isEnabled(),msgOptions,'Assert Start Button is not enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_StartButton_IsEnabled = function (callback) {
+    this.logDebug('Get Start Button Enabled state.');
+    this.page.StartButton.isEnabled().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_IsExists = function (msgOptions) {
+    //this.logDebug('Assert Start Button is exists.');
+    this.assertTrue(this.page.StartButton.isPresent(),msgOptions,'Assert Start Button is exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_StartButton_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert Start Button is NOT exists.');
+    this.assertFalse(this.page.StartButton.isPresent(),msgOptions,'Assert Start Button is NOT exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_StartButton_IsExists = function (callback) {
+    this.logDebug('Get if Start Button is exists.');
+    this.page.StartButton.isPresent().then(callback);
+    return this;
+  };
+
+
+
+  // Control functions for HybirdsButton
+  EstimateMonthlyPaymentFlowBase.prototype.click_HybirdsButton = function () {
+        var that = this;
+      this.takeScreenForLog(function(msg){
+      that.logDebug('Click Hybirds Button. '+msg);
+    });
+    this.page.HybirdsButton.click();
+    return this;
+  };
+
+
+
+
+
+  // Wait functions for HybirdsButton
+  EstimateMonthlyPaymentFlowBase.prototype.wait_HybirdsButton_Displayed = function () {
+    this.logDebug('Wait until Hybirds Button displayed');
+    this.page.HybirdsButton.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_HybirdsButton_Disappeared = function () {
+    this.logDebug('Wait until Hybirds Button disappeared');
+    this.page.HybirdsButton.waitForDisappear();
+    return this;
+  };
+
+  // Assert functions for HybirdsButton
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert Hybirds Button contains text: ' + text);
+    this.assertIsContain(this.page.HybirdsButton.getText(), text,msgOptions,'Assert Hybirds Button contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert Hybirds Button does not contain text: ' + text);
+    this.assertIsNotContain(this.page.HybirdsButton.getText(), text,msgOptions,'Assert Hybirds Button does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert Hybirds Button text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.HybirdsButton.getText(), pattern, msgOptions, 'Assert Hybirds Button text match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert Hybirds Button attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.HybirdsButton.getAttribute(attribute), text,msgOptions,'Assert Hybirds Button attribute[' + attribute + '] contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert Hybirds Button attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.HybirdsButton.getAttribute(attribute), text,msgOptions,'Assert Hybirds Button attribute[' + attribute + '] does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert Hybirds Button attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.HybirdsButton.getAttribute(attribute), pattern,msgOptions,'Assert Hybirds Button attribute[' + attribute + '] match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert Hybirds Button is displayed.');
+    this.assertTrue(this.page.HybirdsButton.isDisplayed(),msgOptions,'Assert Hybirds Button is displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert Hybirds Button is NOT displayed.');
+    this.assertFalse(this.page.HybirdsButton.isDisplayed(),msgOptions,'Assert Hybirds Button is NOT displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_HybirdsButton_IsDisplayed = function (callback) {
+    this.logDebug('Get Hybirds Button Displayed state.');
+    this.page.HybirdsButton.isDisplayed().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert Hybirds Button is enabled.');
+    this.assertTrue(this.page.HybirdsButton.isEnabled(),msgOptions,'Assert Hybirds Button is enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert Hybirds Button is disabled.');
+    this.assertFalse(this.page.HybirdsButton.isEnabled(),msgOptions,'Assert Hybirds Button is not enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_HybirdsButton_IsEnabled = function (callback) {
+    this.logDebug('Get Hybirds Button Enabled state.');
+    this.page.HybirdsButton.isEnabled().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_IsExists = function (msgOptions) {
+    //this.logDebug('Assert Hybirds Button is exists.');
+    this.assertTrue(this.page.HybirdsButton.isPresent(),msgOptions,'Assert Hybirds Button is exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_HybirdsButton_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert Hybirds Button is NOT exists.');
+    this.assertFalse(this.page.HybirdsButton.isPresent(),msgOptions,'Assert Hybirds Button is NOT exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_HybirdsButton_IsExists = function (callback) {
+    this.logDebug('Get if Hybirds Button is exists.');
+    this.page.HybirdsButton.isPresent().then(callback);
+    return this;
+  };
+
+
+  // Navigation for RX_HYBRIDButton
+  EstimateMonthlyPaymentFlowBase.prototype.click_RX_HYBRIDButton_NavigateTo_SelectTrimFlow = function () {
+        var that = this;
+      var SelectTrimFlow = require('./../flows/SelectTrimFlow.js');
+      this.takeScreenForLog(function(msg){
+      that.logDebug('Click RX_HYBRID Button then navigate to SelectTrimFlow. '+msg);
     });
     this.page.RX_HYBRIDButton.click();
-    return new BuyFlow(true, false);
+    return new SelectTrimFlow(true, false);
   };
 
   // Control functions for RX_HYBRIDButton
@@ -179,6 +432,19 @@ EstimateMonthlyPaymentFlowBase.prototype.constructor = EstimateMonthlyPaymentFlo
 
 
 
+
+  // Wait functions for RX_HYBRIDButton
+  EstimateMonthlyPaymentFlowBase.prototype.wait_RX_HYBRIDButton_Displayed = function () {
+    this.logDebug('Wait until RX_HYBRID Button displayed');
+    this.page.RX_HYBRIDButton.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_RX_HYBRIDButton_Disappeared = function () {
+    this.logDebug('Wait until RX_HYBRID Button disappeared');
+    this.page.RX_HYBRIDButton.waitForDisappear();
+    return this;
+  };
 
   // Assert functions for RX_HYBRIDButton
   EstimateMonthlyPaymentFlowBase.prototype.assert_RX_HYBRIDButton_ContainText = function (text,msgOptions) {
@@ -268,6 +534,491 @@ EstimateMonthlyPaymentFlowBase.prototype.constructor = EstimateMonthlyPaymentFlo
   EstimateMonthlyPaymentFlowBase.prototype.get_RX_HYBRIDButton_IsExists = function (callback) {
     this.logDebug('Get if RX_HYBRID Button is exists.');
     this.page.RX_HYBRIDButton.isPresent().then(callback);
+    return this;
+  };
+
+
+
+  // Control functions for NavbarToggleButton
+  EstimateMonthlyPaymentFlowBase.prototype.click_NavbarToggleButton = function () {
+        var that = this;
+      this.takeScreenForLog(function(msg){
+      that.logDebug('Click NavbarToggle Button. '+msg);
+    });
+    this.page.NavbarToggleButton.click();
+    return this;
+  };
+
+
+
+
+
+  // Wait functions for NavbarToggleButton
+  EstimateMonthlyPaymentFlowBase.prototype.wait_NavbarToggleButton_Displayed = function () {
+    this.logDebug('Wait until NavbarToggle Button displayed');
+    this.page.NavbarToggleButton.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_NavbarToggleButton_Disappeared = function () {
+    this.logDebug('Wait until NavbarToggle Button disappeared');
+    this.page.NavbarToggleButton.waitForDisappear();
+    return this;
+  };
+
+  // Assert functions for NavbarToggleButton
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button contains text: ' + text);
+    this.assertIsContain(this.page.NavbarToggleButton.getText(), text,msgOptions,'Assert NavbarToggle Button contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button does not contain text: ' + text);
+    this.assertIsNotContain(this.page.NavbarToggleButton.getText(), text,msgOptions,'Assert NavbarToggle Button does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.NavbarToggleButton.getText(), pattern, msgOptions, 'Assert NavbarToggle Button text match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.NavbarToggleButton.getAttribute(attribute), text,msgOptions,'Assert NavbarToggle Button attribute[' + attribute + '] contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.NavbarToggleButton.getAttribute(attribute), text,msgOptions,'Assert NavbarToggle Button attribute[' + attribute + '] does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.NavbarToggleButton.getAttribute(attribute), pattern,msgOptions,'Assert NavbarToggle Button attribute[' + attribute + '] match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button is displayed.');
+    this.assertTrue(this.page.NavbarToggleButton.isDisplayed(),msgOptions,'Assert NavbarToggle Button is displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button is NOT displayed.');
+    this.assertFalse(this.page.NavbarToggleButton.isDisplayed(),msgOptions,'Assert NavbarToggle Button is NOT displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_NavbarToggleButton_IsDisplayed = function (callback) {
+    this.logDebug('Get NavbarToggle Button Displayed state.');
+    this.page.NavbarToggleButton.isDisplayed().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button is enabled.');
+    this.assertTrue(this.page.NavbarToggleButton.isEnabled(),msgOptions,'Assert NavbarToggle Button is enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button is disabled.');
+    this.assertFalse(this.page.NavbarToggleButton.isEnabled(),msgOptions,'Assert NavbarToggle Button is not enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_NavbarToggleButton_IsEnabled = function (callback) {
+    this.logDebug('Get NavbarToggle Button Enabled state.');
+    this.page.NavbarToggleButton.isEnabled().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_IsExists = function (msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button is exists.');
+    this.assertTrue(this.page.NavbarToggleButton.isPresent(),msgOptions,'Assert NavbarToggle Button is exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_NavbarToggleButton_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert NavbarToggle Button is NOT exists.');
+    this.assertFalse(this.page.NavbarToggleButton.isPresent(),msgOptions,'Assert NavbarToggle Button is NOT exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_NavbarToggleButton_IsExists = function (callback) {
+    this.logDebug('Get if NavbarToggle Button is exists.');
+    this.page.NavbarToggleButton.isPresent().then(callback);
+    return this;
+  };
+
+
+
+  // Control functions for MenuLargePaymentEstimatorButton
+  EstimateMonthlyPaymentFlowBase.prototype.click_MenuLargePaymentEstimatorButton = function () {
+        var that = this;
+      this.takeScreenForLog(function(msg){
+      that.logDebug('Click MenuLargePaymentEstimator Button. '+msg);
+    });
+    this.page.MenuLargePaymentEstimatorButton.click();
+    return this;
+  };
+
+
+
+
+
+  // Wait functions for MenuLargePaymentEstimatorButton
+  EstimateMonthlyPaymentFlowBase.prototype.wait_MenuLargePaymentEstimatorButton_Displayed = function () {
+    this.logDebug('Wait until MenuLargePaymentEstimator Button displayed');
+    this.page.MenuLargePaymentEstimatorButton.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_MenuLargePaymentEstimatorButton_Disappeared = function () {
+    this.logDebug('Wait until MenuLargePaymentEstimator Button disappeared');
+    this.page.MenuLargePaymentEstimatorButton.waitForDisappear();
+    return this;
+  };
+
+  // Assert functions for MenuLargePaymentEstimatorButton
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button contains text: ' + text);
+    this.assertIsContain(this.page.MenuLargePaymentEstimatorButton.getText(), text,msgOptions,'Assert MenuLargePaymentEstimator Button contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button does not contain text: ' + text);
+    this.assertIsNotContain(this.page.MenuLargePaymentEstimatorButton.getText(), text,msgOptions,'Assert MenuLargePaymentEstimator Button does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.MenuLargePaymentEstimatorButton.getText(), pattern, msgOptions, 'Assert MenuLargePaymentEstimator Button text match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.MenuLargePaymentEstimatorButton.getAttribute(attribute), text,msgOptions,'Assert MenuLargePaymentEstimator Button attribute[' + attribute + '] contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.MenuLargePaymentEstimatorButton.getAttribute(attribute), text,msgOptions,'Assert MenuLargePaymentEstimator Button attribute[' + attribute + '] does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.MenuLargePaymentEstimatorButton.getAttribute(attribute), pattern,msgOptions,'Assert MenuLargePaymentEstimator Button attribute[' + attribute + '] match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button is displayed.');
+    this.assertTrue(this.page.MenuLargePaymentEstimatorButton.isDisplayed(),msgOptions,'Assert MenuLargePaymentEstimator Button is displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button is NOT displayed.');
+    this.assertFalse(this.page.MenuLargePaymentEstimatorButton.isDisplayed(),msgOptions,'Assert MenuLargePaymentEstimator Button is NOT displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_MenuLargePaymentEstimatorButton_IsDisplayed = function (callback) {
+    this.logDebug('Get MenuLargePaymentEstimator Button Displayed state.');
+    this.page.MenuLargePaymentEstimatorButton.isDisplayed().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button is enabled.');
+    this.assertTrue(this.page.MenuLargePaymentEstimatorButton.isEnabled(),msgOptions,'Assert MenuLargePaymentEstimator Button is enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button is disabled.');
+    this.assertFalse(this.page.MenuLargePaymentEstimatorButton.isEnabled(),msgOptions,'Assert MenuLargePaymentEstimator Button is not enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_MenuLargePaymentEstimatorButton_IsEnabled = function (callback) {
+    this.logDebug('Get MenuLargePaymentEstimator Button Enabled state.');
+    this.page.MenuLargePaymentEstimatorButton.isEnabled().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_IsExists = function (msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button is exists.');
+    this.assertTrue(this.page.MenuLargePaymentEstimatorButton.isPresent(),msgOptions,'Assert MenuLargePaymentEstimator Button is exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuLargePaymentEstimatorButton_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert MenuLargePaymentEstimator Button is NOT exists.');
+    this.assertFalse(this.page.MenuLargePaymentEstimatorButton.isPresent(),msgOptions,'Assert MenuLargePaymentEstimator Button is NOT exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_MenuLargePaymentEstimatorButton_IsExists = function (callback) {
+    this.logDebug('Get if MenuLargePaymentEstimator Button is exists.');
+    this.page.MenuLargePaymentEstimatorButton.isPresent().then(callback);
+    return this;
+  };
+
+
+
+  // Control functions for MenuSmallPaymentEstimatorButton
+  EstimateMonthlyPaymentFlowBase.prototype.click_MenuSmallPaymentEstimatorButton = function () {
+        var that = this;
+      this.takeScreenForLog(function(msg){
+      that.logDebug('Click MenuSmallPaymentEstimator Button. '+msg);
+    });
+    this.page.MenuSmallPaymentEstimatorButton.click();
+    return this;
+  };
+
+
+
+
+
+  // Wait functions for MenuSmallPaymentEstimatorButton
+  EstimateMonthlyPaymentFlowBase.prototype.wait_MenuSmallPaymentEstimatorButton_Displayed = function () {
+    this.logDebug('Wait until MenuSmallPaymentEstimator Button displayed');
+    this.page.MenuSmallPaymentEstimatorButton.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_MenuSmallPaymentEstimatorButton_Disappeared = function () {
+    this.logDebug('Wait until MenuSmallPaymentEstimator Button disappeared');
+    this.page.MenuSmallPaymentEstimatorButton.waitForDisappear();
+    return this;
+  };
+
+  // Assert functions for MenuSmallPaymentEstimatorButton
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button contains text: ' + text);
+    this.assertIsContain(this.page.MenuSmallPaymentEstimatorButton.getText(), text,msgOptions,'Assert MenuSmallPaymentEstimator Button contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button does not contain text: ' + text);
+    this.assertIsNotContain(this.page.MenuSmallPaymentEstimatorButton.getText(), text,msgOptions,'Assert MenuSmallPaymentEstimator Button does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.MenuSmallPaymentEstimatorButton.getText(), pattern, msgOptions, 'Assert MenuSmallPaymentEstimator Button text match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.MenuSmallPaymentEstimatorButton.getAttribute(attribute), text,msgOptions,'Assert MenuSmallPaymentEstimator Button attribute[' + attribute + '] contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.MenuSmallPaymentEstimatorButton.getAttribute(attribute), text,msgOptions,'Assert MenuSmallPaymentEstimator Button attribute[' + attribute + '] does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.MenuSmallPaymentEstimatorButton.getAttribute(attribute), pattern,msgOptions,'Assert MenuSmallPaymentEstimator Button attribute[' + attribute + '] match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button is displayed.');
+    this.assertTrue(this.page.MenuSmallPaymentEstimatorButton.isDisplayed(),msgOptions,'Assert MenuSmallPaymentEstimator Button is displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button is NOT displayed.');
+    this.assertFalse(this.page.MenuSmallPaymentEstimatorButton.isDisplayed(),msgOptions,'Assert MenuSmallPaymentEstimator Button is NOT displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_MenuSmallPaymentEstimatorButton_IsDisplayed = function (callback) {
+    this.logDebug('Get MenuSmallPaymentEstimator Button Displayed state.');
+    this.page.MenuSmallPaymentEstimatorButton.isDisplayed().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button is enabled.');
+    this.assertTrue(this.page.MenuSmallPaymentEstimatorButton.isEnabled(),msgOptions,'Assert MenuSmallPaymentEstimator Button is enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button is disabled.');
+    this.assertFalse(this.page.MenuSmallPaymentEstimatorButton.isEnabled(),msgOptions,'Assert MenuSmallPaymentEstimator Button is not enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_MenuSmallPaymentEstimatorButton_IsEnabled = function (callback) {
+    this.logDebug('Get MenuSmallPaymentEstimator Button Enabled state.');
+    this.page.MenuSmallPaymentEstimatorButton.isEnabled().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_IsExists = function (msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button is exists.');
+    this.assertTrue(this.page.MenuSmallPaymentEstimatorButton.isPresent(),msgOptions,'Assert MenuSmallPaymentEstimator Button is exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_MenuSmallPaymentEstimatorButton_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert MenuSmallPaymentEstimator Button is NOT exists.');
+    this.assertFalse(this.page.MenuSmallPaymentEstimatorButton.isPresent(),msgOptions,'Assert MenuSmallPaymentEstimator Button is NOT exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_MenuSmallPaymentEstimatorButton_IsExists = function (callback) {
+    this.logDebug('Get if MenuSmallPaymentEstimator Button is exists.');
+    this.page.MenuSmallPaymentEstimatorButton.isPresent().then(callback);
+    return this;
+  };
+
+
+
+  // Control functions for LoadingLabel
+
+  EstimateMonthlyPaymentFlowBase.prototype.getText_LoadingLabel = function (callback) {
+    this.logDebug('Get Loading Label text');
+    this.page.LoadingLabel.getText().then(callback);
+    return this;
+  };
+  EstimateMonthlyPaymentFlowBase.prototype.click_LoadingLabel = function (callback) {
+      var that = this;
+      this.takeScreenForLog(function(msg){
+      that.logDebug('Click Loading Label. '+msg);
+    });
+    this.page.LoadingLabel.click();
+    return this;
+  };
+
+
+
+
+  // Wait functions for LoadingLabel
+  EstimateMonthlyPaymentFlowBase.prototype.wait_LoadingLabel_Displayed = function () {
+    this.logDebug('Wait until Loading Label displayed');
+    this.page.LoadingLabel.waitPresent(true);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.wait_LoadingLabel_Disappeared = function () {
+    this.logDebug('Wait until Loading Label disappeared');
+    this.page.LoadingLabel.waitForDisappear();
+    return this;
+  };
+
+  // Assert functions for LoadingLabel
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert Loading Label contains text: ' + text);
+    this.assertIsContain(this.page.LoadingLabel.getText(), text,msgOptions,'Assert Loading Label contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert Loading Label does not contain text: ' + text);
+    this.assertIsNotContain(this.page.LoadingLabel.getText(), text,msgOptions,'Assert Loading Label does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert Loading Label text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.LoadingLabel.getText(), pattern, msgOptions, 'Assert Loading Label text match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert Loading Label attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.LoadingLabel.getAttribute(attribute), text,msgOptions,'Assert Loading Label attribute[' + attribute + '] contains text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert Loading Label attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.LoadingLabel.getAttribute(attribute), text,msgOptions,'Assert Loading Label attribute[' + attribute + '] does not contain text: ' + text);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert Loading Label attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.LoadingLabel.getAttribute(attribute), pattern,msgOptions,'Assert Loading Label attribute[' + attribute + '] match pattern: ' + pattern);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert Loading Label is displayed.');
+    this.assertTrue(this.page.LoadingLabel.isDisplayed(),msgOptions,'Assert Loading Label is displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert Loading Label is NOT displayed.');
+    this.assertFalse(this.page.LoadingLabel.isDisplayed(),msgOptions,'Assert Loading Label is NOT displayed.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_LoadingLabel_IsDisplayed = function (callback) {
+    this.logDebug('Get Loading Label Displayed state.');
+    this.page.LoadingLabel.isDisplayed().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert Loading Label is enabled.');
+    this.assertTrue(this.page.LoadingLabel.isEnabled(),msgOptions,'Assert Loading Label is enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert Loading Label is disabled.');
+    this.assertFalse(this.page.LoadingLabel.isEnabled(),msgOptions,'Assert Loading Label is not enabled.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_LoadingLabel_IsEnabled = function (callback) {
+    this.logDebug('Get Loading Label Enabled state.');
+    this.page.LoadingLabel.isEnabled().then(callback);
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_IsExists = function (msgOptions) {
+    //this.logDebug('Assert Loading Label is exists.');
+    this.assertTrue(this.page.LoadingLabel.isPresent(),msgOptions,'Assert Loading Label is exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.assert_LoadingLabel_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert Loading Label is NOT exists.');
+    this.assertFalse(this.page.LoadingLabel.isPresent(),msgOptions,'Assert Loading Label is NOT exists.');
+    return this;
+  };
+
+  EstimateMonthlyPaymentFlowBase.prototype.get_LoadingLabel_IsExists = function (callback) {
+    this.logDebug('Get if Loading Label is exists.');
+    this.page.LoadingLabel.isPresent().then(callback);
     return this;
   };
 

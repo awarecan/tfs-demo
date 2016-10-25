@@ -13,12 +13,12 @@ TextBox.prototype.getValue = function () {
 };
 
 TextBox.prototype.addValue = function (value) {
-    this.waitPresent();
+    this.waitPresent(true);
     return this.ele.sendKeys(value);
 };
 
 TextBox.prototype.setValue = function (value) {
-    this.waitPresent();
+    this.waitPresent(true);
     return this.ele.clear().sendKeys(value);
 };
 

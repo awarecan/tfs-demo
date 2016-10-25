@@ -21,131 +21,24 @@ HomeFlowBase.prototype = new FlowBase();
 HomeFlowBase.prototype.constructor = HomeFlowBase;
 
 
-
-  // Control functions for FinancialToolsButton
-  HomeFlowBase.prototype.click_FinancialToolsButton = function () {
-        var that = this;
-      this.takeScreenForLog(function(msg){
-      that.logDebug('Click FinancialTools Button. '+msg);
-    });
-    this.page.FinancialToolsButton.click();
-    return this;
-  };
-
-
-
-
-
-  // Assert functions for FinancialToolsButton
-  HomeFlowBase.prototype.assert_FinancialToolsButton_ContainText = function (text,msgOptions) {
-    //this.logDebug('Assert FinancialTools Button contains text: ' + text);
-    this.assertIsContain(this.page.FinancialToolsButton.getText(), text,msgOptions,'Assert FinancialTools Button contains text: ' + text);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_NotContainText = function (text,msgOptions) {
-    //this.logDebug('Assert FinancialTools Button does not contain text: ' + text);
-    this.assertIsNotContain(this.page.FinancialToolsButton.getText(), text,msgOptions,'Assert FinancialTools Button does not contain text: ' + text);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_TextMatchPattern = function (pattern,msgOptions) {
-    //this.logDebug('Assert FinancialTools Button text match pattern: ' + pattern);
-    this.assertIsMatchPattern(this.page.FinancialToolsButton.getText(), pattern, msgOptions, 'Assert FinancialTools Button text match pattern: ' + pattern);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_Attribute_ContainText = function (attribute, text,msgOptions) {
-    //this.logDebug('Assert FinancialTools Button attribute[' + attribute + '] contains text: ' + text);
-    this.assertIsContain(this.page.FinancialToolsButton.getAttribute(attribute), text,msgOptions,'Assert FinancialTools Button attribute[' + attribute + '] contains text: ' + text);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_Attribute_NotContainText = function (attribute,text,msgOptions) {
-    //this.logDebug('Assert FinancialTools Button attribute[' + attribute + '] does not contain text: ' + text);
-    this.assertIsNotContain(this.page.FinancialToolsButton.getAttribute(attribute), text,msgOptions,'Assert FinancialTools Button attribute[' + attribute + '] does not contain text: ' + text);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
-    //this.logDebug('Assert FinancialTools Button attribute[' + attribute + '] match pattern: ' + pattern);
-    this.assertIsMatchPattern(this.page.FinancialToolsButton.getAttribute(attribute), pattern,msgOptions,'Assert FinancialTools Button attribute[' + attribute + '] match pattern: ' + pattern);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_IsDisplayed = function (msgOptions) {
-    //this.logDebug('Assert FinancialTools Button is displayed.');
-    this.assertTrue(this.page.FinancialToolsButton.isDisplayed(),msgOptions,'Assert FinancialTools Button is displayed.');
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_IsNotDisplayed = function (msgOptions) {
-    //this.logDebug('Assert FinancialTools Button is NOT displayed.');
-    this.assertFalse(this.page.FinancialToolsButton.isDisplayed(),msgOptions,'Assert FinancialTools Button is NOT displayed.');
-    return this;
-  };
-
-  HomeFlowBase.prototype.get_FinancialToolsButton_IsDisplayed = function (callback) {
-    this.logDebug('Get FinancialTools Button Displayed state.');
-    this.page.FinancialToolsButton.isDisplayed().then(callback);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_IsEnabled = function (msgOptions) {
-    //this.logDebug('Assert FinancialTools Button is enabled.');
-    this.assertTrue(this.page.FinancialToolsButton.isEnabled(),msgOptions,'Assert FinancialTools Button is enabled.');
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_IsNotEnabled = function (msgOptions) {
-    //this.logDebug('Assert FinancialTools Button is disabled.');
-    this.assertFalse(this.page.FinancialToolsButton.isEnabled(),msgOptions,'Assert FinancialTools Button is not enabled.');
-    return this;
-  };
-
-  HomeFlowBase.prototype.get_FinancialToolsButton_IsEnabled = function (callback) {
-    this.logDebug('Get FinancialTools Button Enabled state.');
-    this.page.FinancialToolsButton.isEnabled().then(callback);
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_IsExists = function (msgOptions) {
-    //this.logDebug('Assert FinancialTools Button is exists.');
-    this.assertTrue(this.page.FinancialToolsButton.isPresent(),msgOptions,'Assert FinancialTools Button is exists.');
-    return this;
-  };
-
-  HomeFlowBase.prototype.assert_FinancialToolsButton_IsNotExists = function (msgOptions) {
-    //this.logDebug('Assert FinancialTools Button is NOT exists.');
-    this.assertFalse(this.page.FinancialToolsButton.isPresent(),msgOptions,'Assert FinancialTools Button is NOT exists.');
-    return this;
-  };
-
-  HomeFlowBase.prototype.get_FinancialToolsButton_IsExists = function (callback) {
-    this.logDebug('Get if FinancialTools Button is exists.');
-    this.page.FinancialToolsButton.isPresent().then(callback);
-    return this;
-  };
-
-
-  // Navigation for EstimateMonthlyPaymentLink
-  HomeFlowBase.prototype.click_EstimateMonthlyPaymentLink_NavigateTo_EstimateMonthlyPaymentFlow = function () {
+  // Navigation for PaymentEstimatorLink
+  HomeFlowBase.prototype.click_PaymentEstimatorLink_NavigateTo_EstimateMonthlyPaymentFlow = function () {
         var that = this;
       var EstimateMonthlyPaymentFlow = require('./../flows/EstimateMonthlyPaymentFlow.js');
       this.takeScreenForLog(function(msg){
-      that.logDebug('Click EstimateMonthlyPayment Link then navigate to EstimateMonthlyPaymentFlow. '+msg);
+      that.logDebug('Click PaymentEstimator Link then navigate to EstimateMonthlyPaymentFlow. '+msg);
     });
-    this.page.EstimateMonthlyPaymentLink.click();
+    this.page.PaymentEstimatorLink.click();
     return new EstimateMonthlyPaymentFlow(true, false);
   };
 
-  // Control functions for EstimateMonthlyPaymentLink
-  HomeFlowBase.prototype.click_EstimateMonthlyPaymentLink = function () {
+  // Control functions for PaymentEstimatorLink
+  HomeFlowBase.prototype.click_PaymentEstimatorLink = function () {
       var that = this;
       this.takeScreenForLog(function(msg){
-      that.logDebug('Click EstimateMonthlyPayment Link. '+msg);
+      that.logDebug('Click PaymentEstimator Link. '+msg);
     });
-    this.page.EstimateMonthlyPaymentLink.click();
+    this.page.PaymentEstimatorLink.click();
     return this;
   };
 
@@ -153,94 +46,107 @@ HomeFlowBase.prototype.constructor = HomeFlowBase;
 
 
 
-  // Assert functions for EstimateMonthlyPaymentLink
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_ContainText = function (text,msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link contains text: ' + text);
-    this.assertIsContain(this.page.EstimateMonthlyPaymentLink.getText(), text,msgOptions,'Assert EstimateMonthlyPayment Link contains text: ' + text);
+  // Wait functions for PaymentEstimatorLink
+  HomeFlowBase.prototype.wait_PaymentEstimatorLink_Displayed = function () {
+    this.logDebug('Wait until PaymentEstimator Link displayed');
+    this.page.PaymentEstimatorLink.waitPresent(true);
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_NotContainText = function (text,msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link does not contain text: ' + text);
-    this.assertIsNotContain(this.page.EstimateMonthlyPaymentLink.getText(), text,msgOptions,'Assert EstimateMonthlyPayment Link does not contain text: ' + text);
+  HomeFlowBase.prototype.wait_PaymentEstimatorLink_Disappeared = function () {
+    this.logDebug('Wait until PaymentEstimator Link disappeared');
+    this.page.PaymentEstimatorLink.waitForDisappear();
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_TextMatchPattern = function (pattern,msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link text match pattern: ' + pattern);
-    this.assertIsMatchPattern(this.page.EstimateMonthlyPaymentLink.getText(), pattern, msgOptions, 'Assert EstimateMonthlyPayment Link text match pattern: ' + pattern);
+  // Assert functions for PaymentEstimatorLink
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_ContainText = function (text,msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link contains text: ' + text);
+    this.assertIsContain(this.page.PaymentEstimatorLink.getText(), text,msgOptions,'Assert PaymentEstimator Link contains text: ' + text);
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_Attribute_ContainText = function (attribute, text,msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link attribute[' + attribute + '] contains text: ' + text);
-    this.assertIsContain(this.page.EstimateMonthlyPaymentLink.getAttribute(attribute), text,msgOptions,'Assert EstimateMonthlyPayment Link attribute[' + attribute + '] contains text: ' + text);
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_NotContainText = function (text,msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link does not contain text: ' + text);
+    this.assertIsNotContain(this.page.PaymentEstimatorLink.getText(), text,msgOptions,'Assert PaymentEstimator Link does not contain text: ' + text);
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_Attribute_NotContainText = function (attribute,text,msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link attribute[' + attribute + '] does not contain text: ' + text);
-    this.assertIsNotContain(this.page.EstimateMonthlyPaymentLink.getAttribute(attribute), text,msgOptions,'Assert EstimateMonthlyPayment Link attribute[' + attribute + '] does not contain text: ' + text);
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_TextMatchPattern = function (pattern,msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link text match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.PaymentEstimatorLink.getText(), pattern, msgOptions, 'Assert PaymentEstimator Link text match pattern: ' + pattern);
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link attribute[' + attribute + '] match pattern: ' + pattern);
-    this.assertIsMatchPattern(this.page.EstimateMonthlyPaymentLink.getAttribute(attribute), pattern,msgOptions,'Assert EstimateMonthlyPayment Link attribute[' + attribute + '] match pattern: ' + pattern);
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_Attribute_ContainText = function (attribute, text,msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link attribute[' + attribute + '] contains text: ' + text);
+    this.assertIsContain(this.page.PaymentEstimatorLink.getAttribute(attribute), text,msgOptions,'Assert PaymentEstimator Link attribute[' + attribute + '] contains text: ' + text);
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_IsDisplayed = function (msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link is displayed.');
-    this.assertTrue(this.page.EstimateMonthlyPaymentLink.isDisplayed(),msgOptions,'Assert EstimateMonthlyPayment Link is displayed.');
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_Attribute_NotContainText = function (attribute,text,msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link attribute[' + attribute + '] does not contain text: ' + text);
+    this.assertIsNotContain(this.page.PaymentEstimatorLink.getAttribute(attribute), text,msgOptions,'Assert PaymentEstimator Link attribute[' + attribute + '] does not contain text: ' + text);
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_IsNotDisplayed = function (msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link is NOT displayed.');
-    this.assertFalse(this.page.EstimateMonthlyPaymentLink.isDisplayed(),msgOptions,'Assert EstimateMonthlyPayment Link is NOT displayed.');
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_Attribute_MatchPattern = function (attribute,pattern,msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link attribute[' + attribute + '] match pattern: ' + pattern);
+    this.assertIsMatchPattern(this.page.PaymentEstimatorLink.getAttribute(attribute), pattern,msgOptions,'Assert PaymentEstimator Link attribute[' + attribute + '] match pattern: ' + pattern);
     return this;
   };
 
-  HomeFlowBase.prototype.get_EstimateMonthlyPaymentLink_IsDisplayed = function (callback) {
-    this.logDebug('Get EstimateMonthlyPayment Link Displayed state.');
-    this.page.EstimateMonthlyPaymentLink.isDisplayed().then(callback);
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_IsDisplayed = function (msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link is displayed.');
+    this.assertTrue(this.page.PaymentEstimatorLink.isDisplayed(),msgOptions,'Assert PaymentEstimator Link is displayed.');
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_IsEnabled = function (msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link is enabled.');
-    this.assertTrue(this.page.EstimateMonthlyPaymentLink.isEnabled(),msgOptions,'Assert EstimateMonthlyPayment Link is enabled.');
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_IsNotDisplayed = function (msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link is NOT displayed.');
+    this.assertFalse(this.page.PaymentEstimatorLink.isDisplayed(),msgOptions,'Assert PaymentEstimator Link is NOT displayed.');
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_IsNotEnabled = function (msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link is disabled.');
-    this.assertFalse(this.page.EstimateMonthlyPaymentLink.isEnabled(),msgOptions,'Assert EstimateMonthlyPayment Link is not enabled.');
+  HomeFlowBase.prototype.get_PaymentEstimatorLink_IsDisplayed = function (callback) {
+    this.logDebug('Get PaymentEstimator Link Displayed state.');
+    this.page.PaymentEstimatorLink.isDisplayed().then(callback);
     return this;
   };
 
-  HomeFlowBase.prototype.get_EstimateMonthlyPaymentLink_IsEnabled = function (callback) {
-    this.logDebug('Get EstimateMonthlyPayment Link Enabled state.');
-    this.page.EstimateMonthlyPaymentLink.isEnabled().then(callback);
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_IsEnabled = function (msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link is enabled.');
+    this.assertTrue(this.page.PaymentEstimatorLink.isEnabled(),msgOptions,'Assert PaymentEstimator Link is enabled.');
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_IsExists = function (msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link is exists.');
-    this.assertTrue(this.page.EstimateMonthlyPaymentLink.isPresent(),msgOptions,'Assert EstimateMonthlyPayment Link is exists.');
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_IsNotEnabled = function (msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link is disabled.');
+    this.assertFalse(this.page.PaymentEstimatorLink.isEnabled(),msgOptions,'Assert PaymentEstimator Link is not enabled.');
     return this;
   };
 
-  HomeFlowBase.prototype.assert_EstimateMonthlyPaymentLink_IsNotExists = function (msgOptions) {
-    //this.logDebug('Assert EstimateMonthlyPayment Link is NOT exists.');
-    this.assertFalse(this.page.EstimateMonthlyPaymentLink.isPresent(),msgOptions,'Assert EstimateMonthlyPayment Link is NOT exists.');
+  HomeFlowBase.prototype.get_PaymentEstimatorLink_IsEnabled = function (callback) {
+    this.logDebug('Get PaymentEstimator Link Enabled state.');
+    this.page.PaymentEstimatorLink.isEnabled().then(callback);
     return this;
   };
 
-  HomeFlowBase.prototype.get_EstimateMonthlyPaymentLink_IsExists = function (callback) {
-    this.logDebug('Get if EstimateMonthlyPayment Link is exists.');
-    this.page.EstimateMonthlyPaymentLink.isPresent().then(callback);
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_IsExists = function (msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link is exists.');
+    this.assertTrue(this.page.PaymentEstimatorLink.isPresent(),msgOptions,'Assert PaymentEstimator Link is exists.');
+    return this;
+  };
+
+  HomeFlowBase.prototype.assert_PaymentEstimatorLink_IsNotExists = function (msgOptions) {
+    //this.logDebug('Assert PaymentEstimator Link is NOT exists.');
+    this.assertFalse(this.page.PaymentEstimatorLink.isPresent(),msgOptions,'Assert PaymentEstimator Link is NOT exists.');
+    return this;
+  };
+
+  HomeFlowBase.prototype.get_PaymentEstimatorLink_IsExists = function (callback) {
+    this.logDebug('Get if PaymentEstimator Link is exists.');
+    this.page.PaymentEstimatorLink.isPresent().then(callback);
     return this;
   };
 

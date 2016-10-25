@@ -10,9 +10,8 @@ var utilities = require('./../utils/utilities.js');
 var pagedata = utilities.readJsonFile(__dirname + '/../pages/HomePage.json');
 
 function HomePage(){
-      this.pageUrl = '/pub/home';
-      this.FinancialToolsButton = new controls.Button(pagedata.Controls.FinancialTools.SelectType, pagedata.Controls.FinancialTools.Selector);
-      this.EstimateMonthlyPaymentLink = new controls.Link(pagedata.Controls.EstimateMonthlyPayment.SelectType, pagedata.Controls.EstimateMonthlyPayment.Selector);
+      this.pageUrl = '/pub/w';
+      this.PaymentEstimatorLink = new controls.Link(pagedata.Controls.PaymentEstimator.SelectType, pagedata.Controls.PaymentEstimator.Selector);
 };
 
 module.exports = HomePage;

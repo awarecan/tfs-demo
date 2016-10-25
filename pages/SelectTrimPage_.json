@@ -1,0 +1,14 @@
+{
+    "PageName": "SelectTrim",
+    "PageUrl": "/pub/w/estimate-payment/2",
+    "Controls": {
+        "Trim": {
+            "Type": "Link",
+            "SelectType": "xpath",
+            "Selector": "//*[@data-trim='9444']",
+            "NavigateFlows": [
+                "DetailFlow"
+            ]
+        }
+    }
+}

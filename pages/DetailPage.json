@@ -1,29 +1,26 @@
 {
-	"PageName": "EstimateMonthlyPayment",
-	"PageUrl": "/pub/w/estimate-payment/1",
+	"PageName": "Detail",
+	"PageUrl": "/pub/w/estimate-payment/3",
 	"Controls": {
-		"ZipCode": {
-			"Type": "TextBox",
-			"SelectType": "id",
-			"Selector": "zip"
+		"Buy": {
+			"Type": "Link",
+			"SelectType": "linktext",
+			"Selector": "BUY"
 		},
-		"Start": {
-			"Type": "Button",
-			"SelectType": "buttontext",
-			"Selector": "Start"
+		"Lease": {
+			"Type": "Link",
+			"SelectType": "linktext",
+			"Selector": "LEASE"
 		},
-		"Hybirds": {
-			"Type": "Button",
+		"Term60Month": {
+			"Type": "Label",
 			"SelectType": "xpath",
-			"Selector": "//*[@data-model='HYBRIDS']"
+			"Selector": "//*[@data-term='60']/ul/li[2]"
 		},
-		"RX_HYBRID": {
-			"Type": "Button",
+		"Term60Due": {
+			"Type": "Label",
 			"SelectType": "xpath",
-			"Selector": "//*[@data-model='RX HYBRID']",
-			"NavigateFlows": [
-				"SelectTrimFlow"
-			]
+			"Selector": "//*[@data-term='60']/ul/li[3]"
 		},
 		"NavbarToggle": {
 			"Type": "Button",

@@ -1,3 +1,24 @@
 {
-    "Controls": { }
+    "Controls": {
+        "NavbarToggle": {
+            "Type": "Button",
+            "SelectType": "id",
+            "Selector": "hamburger_btn"
+        },
+        "MenuLargePaymentEstimator": {
+            "Type": "Button",
+            "SelectType": "id",
+            "Selector": "payment_estimator"
+        },
+        "MenuSmallPaymentEstimator": {
+            "Type": "Button",
+            "SelectType": "id",
+            "Selector": "estimator_mi"
+        },
+        "Loading": {
+            "Type": "Label",
+            "SelectType": "css",
+            "Selector": ".js-loading"
+        }
+    }
 }

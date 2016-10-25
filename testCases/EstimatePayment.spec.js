@@ -18,19 +18,19 @@ describe("Login feature", function () {
     });
 
     it('Demo : Get monthly payment estimation for specific model', function () {
-        var AssertSystemVersionContainText = {
-            "expect": "The System Version Number is " + browser.params.versionInformation.SystemVersionNumber,
-            "success": "The System Version Number is {0}",
-            "fail": "The System Version Number is {0}"
-        };
-
         var flow = new HomeFlow(true, true);
         flow.step('1. Open home page, navigate to monthly payment estimation tool')
-            .click_FinancialToolsButton()
-            .click_EstimateMonthlyPaymentLink_NavigateTo_EstimateMonthlyPaymentFlow()
+            .click_PaymentEstimatorLink_NavigateTo_EstimateMonthlyPaymentFlow()
+            .click_HybirdsButton()
             .setValue_ZipCodeTextBox("90505")
-            .click_RX_HYBRIDButton_NavigateTo_BuyFlow()
-            .click_RecalculateButton()
+            .click_StartButton()
+            .click_RX_HYBRIDButton_NavigateTo_SelectTrimFlow()
+            .click_TrimLink_NavigateTo_DetailFlow()
+            .wait_LoadingLabel_Disappeared()
+            .assert_Term60MonthLabel_ContainText("695")
+            .click_BuyLink()
+            .wait_LoadingLabel_Disappeared()
+            .assert_Term60MonthLabel_ContainText("1,008")
             .execute(function () {
                 caseFinish = true;
             });

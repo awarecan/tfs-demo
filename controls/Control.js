@@ -1,4 +1,6 @@
-﻿function Control(selectType, selector, ele) {
+﻿var EC = protractor.ExpectedConditions;
+
+function Control(selectType, selector, ele) {
     if (ele) {
         this.ele = ele;
         return;
@@ -94,11 +96,11 @@ Control.prototype.isPresent = function () {
     return this.ele.isPresent();
 };
 Control.prototype.click = function () {
-    this.waitPresent();
+    this.waitPresent(true);
     return this.ele.click();
 };
 Control.prototype.sendKeys = function (keys) {
-    this.waitPresent();
+    this.waitPresent(true);
     return this.ele.sendKeys(keys);
 };
 Control.prototype.getTagName = function () {
@@ -134,11 +136,11 @@ Control.prototype.isSelected = function () {
     return this.ele.isSelected();
 };
 Control.prototype.submit = function () {
-    this.waitPresent();
+    this.waitPresent(true);
     return this.ele.submit();
 };
 Control.prototype.clear = function () {
-    this.waitPresent();
+    this.waitPresent(true);
     return this.ele.clear();
 };
 Control.prototype.isDisplayed = function () {
@@ -154,16 +156,25 @@ Control.prototype.getInnerHtml = function () {
     return this.ele.getInnerHtml();
 };
 
-Control.prototype.waitPresent = function (timeoutInSeconds) {
+Control.prototype.waitPresent = function (needClickabled, timeoutInSeconds) {
+    var needClickabled = needClickabled || false;
     var timeoutInSeconds = timeoutInSeconds || 60;
     
     var self = this;
-    if (self.locator) {
-        browser.driver.wait(function () {
-            return browser.driver.isElementPresent(self.locator);
-        }, timeoutInSeconds * 1000);
+    if (self.ele) {
+        browser.driver.wait(needClickabled ? EC.elementToBeClickable(self.ele) : EC.presenceOf(self.ele), timeoutInSeconds * 1000);
     }
 };
+
+Control.prototype.waitForDisappear = function (timeoutInSeconds, errorCallback) {
+    var timeoutInSeconds = timeoutInSeconds || 60;
+    var errorCallback = errorCallback || function (err) { };
+
+    var self = this;
+    if (self.ele) {
+        browser.driver.wait(EC.or(EC.stalenessOf(self.ele), EC.invisibilityOf(self.ele)), timeoutInSeconds * 1000).thenCatch(errorCallback);
+    }
+}
 
 Control.prototype.constructor = Control;
 

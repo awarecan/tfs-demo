@@ -7,18 +7,18 @@
 
 var controls = require('./../controls/controls.js');
 var utilities = require('./../utils/utilities.js');
-var pagedata = utilities.readJsonFile(__dirname + '/../pages/EstimateMonthlyPaymentPage.json');
+var pagedata = utilities.readJsonFile(__dirname + '/../pages/DetailPage.json');
 
-function EstimateMonthlyPaymentPage(){
-      this.pageUrl = '/pub/w/estimate-payment/1';
-      this.ZipCodeTextBox = new controls.TextBox(pagedata.Controls.ZipCode.SelectType, pagedata.Controls.ZipCode.Selector);
-      this.StartButton = new controls.Button(pagedata.Controls.Start.SelectType, pagedata.Controls.Start.Selector);
-      this.HybirdsButton = new controls.Button(pagedata.Controls.Hybirds.SelectType, pagedata.Controls.Hybirds.Selector);
-      this.RX_HYBRIDButton = new controls.Button(pagedata.Controls.RX_HYBRID.SelectType, pagedata.Controls.RX_HYBRID.Selector);
+function DetailPage(){
+      this.pageUrl = '/pub/w/estimate-payment/3';
+      this.BuyLink = new controls.Link(pagedata.Controls.Buy.SelectType, pagedata.Controls.Buy.Selector);
+      this.LeaseLink = new controls.Link(pagedata.Controls.Lease.SelectType, pagedata.Controls.Lease.Selector);
+      this.Term60MonthLabel = new controls.Label(pagedata.Controls.Term60Month.SelectType, pagedata.Controls.Term60Month.Selector);
+      this.Term60DueLabel = new controls.Label(pagedata.Controls.Term60Due.SelectType, pagedata.Controls.Term60Due.Selector);
       this.NavbarToggleButton = new controls.Button(pagedata.Controls.NavbarToggle.SelectType, pagedata.Controls.NavbarToggle.Selector);
       this.MenuLargePaymentEstimatorButton = new controls.Button(pagedata.Controls.MenuLargePaymentEstimator.SelectType, pagedata.Controls.MenuLargePaymentEstimator.Selector);
       this.MenuSmallPaymentEstimatorButton = new controls.Button(pagedata.Controls.MenuSmallPaymentEstimator.SelectType, pagedata.Controls.MenuSmallPaymentEstimator.Selector);
       this.LoadingLabel = new controls.Label(pagedata.Controls.Loading.SelectType, pagedata.Controls.Loading.Selector);
 };
 
-module.exports = EstimateMonthlyPaymentPage;
+module.exports = DetailPage;

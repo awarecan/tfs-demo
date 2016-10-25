@@ -1,0 +1,26 @@
+{
+    "PageName": "Detail",
+    "PageUrl": "/pub/w/estimate-payment/3",
+    "Controls": {
+        "Buy": {
+            "Type": "Link",
+            "SelectType": "linktext",
+            "Selector": "BUY"
+        },
+        "Lease": {
+            "Type": "Link",
+            "SelectType": "linktext",
+            "Selector": "LEASE"
+        },
+        "Term60Month": {
+            "Type": "Label",
+            "SelectType": "xpath",
+            "Selector": "//*[@data-term='60']/ul/li[2]"
+        },
+        "Term60Due": {
+            "Type": "Label",
+            "SelectType": "xpath",
+            "Selector": "//*[@data-term='60']/ul/li[3]"
+        }
+    }
+}

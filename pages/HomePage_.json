@@ -1,16 +1,11 @@
 {
   "PageName": "Home",
-  "PageUrl": "/pub/home",
+  "PageUrl": "/pub/w",
   "Controls": {
-    "FinancialTools": {
-      "Type": "Button",
-      "SelectType": "id",
-      "Selector": "finance-vehicle"
-    },
-    "EstimateMonthlyPayment": {
+    "PaymentEstimator": {
       "Type": "Link",
-      "SelectType": "PartialLinkText",
-      "Selector": "Estimate Monthly Payments",
+      "SelectType": "xpath",
+      "Selector": "//*[@data-omniture='Payment Estimator']",
       "NavigateFlows": [
         "EstimateMonthlyPaymentFlow"
       ]

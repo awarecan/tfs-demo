@@ -167,6 +167,19 @@ function {{PageName}}FlowBase(checkUrl, goto) {
   };
   {{/ifx}}
 
+  // Wait functions for {{@key}}{{Type}}
+  {{../PageName}}FlowBase.prototype.wait_{{@key}}{{Type}}_Displayed = function () {
+    this.logDebug('Wait until {{@key}} {{Type}} displayed');
+    this.page.{{@key}}{{Type}}.waitPresent(true);
+    return this;
+  };
+
+  {{../PageName}}FlowBase.prototype.wait_{{@key}}{{Type}}_Disappeared = function () {
+    this.logDebug('Wait until {{@key}} {{Type}} disappeared');
+    this.page.{{@key}}{{Type}}.waitForDisappear();
+    return this;
+  };
+
   // Assert functions for {{@key}}{{Type}}
   {{../PageName}}FlowBase.prototype.assert_{{@key}}{{Type}}_ContainText = function (text,msgOptions) {
     //this.logDebug('Assert {{@key}} {{Type}} contains text: ' + text);
